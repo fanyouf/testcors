@@ -1,6 +1,5 @@
 # testcors
 
-<<<<<<< HEAD
 node.js ajax cors test
 
 ## 使用
@@ -13,8 +12,8 @@ node.js ajax cors test
 nodemon index.js
 ```
 
-使用 nodemon 的目的是让 index.js 热更新。
-=======
+# 使用 nodemon 的目的是让 index.js 热更新。
+
 通过这个项目理清楚 ajax 跨域的知识点。
 
 ## 安装
@@ -41,4 +40,3 @@ npm run front
 ```
 npm run server
 ```
->>>>>>> master
