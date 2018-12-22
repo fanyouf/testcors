@@ -11,3 +11,5 @@ node.js ajax cors test
 ```
 nodemon index.js
 ```
+
+使用 nodemon 的目的是让 index.js 热更新。
