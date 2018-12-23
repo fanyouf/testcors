@@ -13,9 +13,71 @@
     <script>
       const baseUrl = 'http://localhost:3000'
       describe('JSON', function() {
-        it('get1', function(done) {
+        it('get', function(done) {
           var data = null
-          $.getJSON(baseUrl + '/get').then(rs => {
+          $.ajax({ url: baseUrl + '/get', type: 'get', data: {} }).then(rs => {
+            data = rs
+          })
+
+          setTimeout(() => {
+            console.info(data)
+            expect(data).toEqual({ data: 'ok' })
+
+            done()
+          }, 1000)
+        })
+
+        it('post', function(done) {
+          var data = null
+          $.ajax({
+            contentType: 'application/json',
+            url: baseUrl + '/post1',
+            type: 'post',
+            data: JSON.stringify({
+              name: 'Donald Duck'
+            })
+          }).then(rs => {
+            data = rs
+          })
+
+          setTimeout(() => {
+            console.info(data)
+            expect(data).toEqual({ data: 'ok' })
+
+            done()
+          }, 1000)
+        })
+
+        it('getCookie', function(done) {
+          var data = null
+          $.ajax({
+            url: baseUrl + '/getCookie',
+            type: 'get',
+            crossDomain: true,
+            xhrFields: {
+              withCredentials: true
+            }
+          }).then(rs => {
+            data = rs
+          })
+
+          setTimeout(() => {
+            console.info(data)
+            expect(data).toEqual({ data: 'ok' })
+
+            done()
+          }, 1000)
+        })
+
+        it('getHeader', function(done) {
+          var data = null
+          $.ajax({
+            url: baseUrl + '/getHeader',
+            type: 'get',
+            headers: {
+              header1: 'AAA'
+            }
+          }).then(rs => {
             data = rs
           })
 
